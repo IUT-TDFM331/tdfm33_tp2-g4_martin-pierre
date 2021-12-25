@@ -18,3 +18,7 @@ Le test ne passe pas
 10.
 
 Il n'y a pas de probleme
+
+11.
+
+Le build des test rencontre un probleme a cause de la méthode badTest qu'on vient de décommenter

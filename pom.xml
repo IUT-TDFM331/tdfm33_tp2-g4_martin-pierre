@@ -47,6 +47,61 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+
+                        <id>send a mail</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>send-mail</goal>
+                        </goals>
+                        <inherited>true</inherited>
+
+                        <configuration>
+                            <!-- From Email address -->
+                            <from>iuts3.class@gmail.com</from>
+
+                            <!--  Email subject -->
+                            <subject>Test Automation Report</subject>
+
+                            <!-- Fail the build if the mail doesnt reach -->
+                            <failonerror>true</failonerror>
+
+                            <!-- host -->
+                            <mailhost>martin.baras@etu.unice.fr</mailhost>
+                            <!-- port of the host -->
+                            <mailport>465</mailport>
+                            <mailssl>true</mailssl>
+                            <mailAltConfig>true</mailAltConfig>
+
+                            <!-- Email Authentication(USername and Password) -->
+                            <mailuser>iuts3.class</mailuser>
+                            <mailpassword>kvkekkddxgmibljv</mailpassword>
+
+                            <receivers>
+                                <!-- To Email address -->
+                                <receiver>martin.baras@etu.unice.fr</receiver>
+                            </receivers>
+
+                            <fileSets>
+                                <fileSet>
+                                    <!-- Report directory Path -->
+                                    <directory>C://workspace//SendMavenEmail//Reports</directory>
+                                    <includes>
+                                        <!-- Report file name -->
+                                        <include>TestReport.html</include>
+                                    </includes>
+                                    <!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
+                                </fileSet>
+                            </fileSets>
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
