@@ -10,6 +10,7 @@ import org.junit.jupiter.api.function.ThrowingConsumer;
 
 import java.util.Iterator;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -53,7 +54,10 @@ class SortAlgorithmsTest {
         int maxSize = 50000;
         Integer[] arrayToTest = new Integer[maxSize + 1];
         for (int i = maxSize; i >= 0; i--)
+        {
             arrayToTest[maxSize - i] = i;
+        }
+
         testSortingAlgorithm(arrayToTest);
         testSortingAlgorithm(arrayToTest);
     }
@@ -72,15 +76,16 @@ class SortAlgorithmsTest {
     void testSortingAlgorithm(Integer[] input) {
         int length = input.length;
         SortAlgorithms.bubbleSort(input);
-        if (length == 0) {
+        if (length == 0)
+        {
             assertTrue(input.length == 0);
             return;
         }
+
         int valueToTest = input[input.length / 2];
         assertTrue(input[0] <= valueToTest);
         assertTrue(valueToTest <= input[input.length - 1]);
     }
-
 
     @TestFactory
     Stream<DynamicTest> generateTestsForSortingAlgorithms() {
