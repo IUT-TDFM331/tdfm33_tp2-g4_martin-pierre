@@ -6,3 +6,7 @@ A.
 2.
 
 On remarque qu'il y a une erreur car la fonction est en dehors de la classe
+
+6.
+
+On remaque que sur le github la compilation a échoué à cause de l'erreur dans SortAlgorithms
